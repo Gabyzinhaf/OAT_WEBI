@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Bem-vindo ao Meu Site</h1>
+        <p>Esta é a seção de home do site.</p>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Texto sobre quem eu sou e minha experiência.</p>
+        <button id="toggle-info">Mostrar Mais</button>
+        <div id="info-adicional" style="display: none;">
+            <p>Mais informações sobre mim e minhas habilidades.</p>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form id="form-contato">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+section {
+    padding: 50px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilos específicos */
+h1, h2 {
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+#info-adicional {
+    margin-top: 20px;
+}
+
+// Mostrar/Esconder informações adicionais na seção "Sobre Mim"
+const toggleButton = document.getElementById('toggle-info');
+const infoAdicional = document.getElementById('info-adicional');
+
+toggleButton.addEventListener('click', function() {
+    if (infoAdicional.style.display === 'none') {
+        infoAdicional.style.display = 'block';
+        toggleButton.textContent = 'Mostrar Menos';
+    } else {
+        infoAdicional.style.display = 'none';
+        toggleButton.textContent = 'Mostrar Mais';
+    }
+});
+
+// Enviar formulário de contato
+const formContato = document.getElementById('form-contato');
+
+formContato.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Obter valores do formulário
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    // Simular envio do formulário (exemplo)
+    setTimeout(function() {
+        alert(`Mensagem enviada!\n\nNome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
+        formContato.reset();
+    }, 1000);
+});
